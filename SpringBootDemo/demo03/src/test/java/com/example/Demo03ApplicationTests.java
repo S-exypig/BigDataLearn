@@ -14,9 +14,8 @@ class Demo03ApplicationTests {
 
     @Test
     public void selectComment(){
-        commentMapper.findById(1,2,3).stream().forEach(com-> System.out.println(com));
+        System.out.println(commentMapper.selectComment(1));
     }
-
     @Test
     public void insertComment(){
         System.out.println(commentMapper

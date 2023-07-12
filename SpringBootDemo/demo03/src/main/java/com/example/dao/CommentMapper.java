@@ -8,8 +8,8 @@ import java.util.List;
 @Mapper
 public interface CommentMapper {
 
-    @Select("select * from springbootdata.t_comment where id in (#{id1},#{id2},#{id3})")
-    List<Comment> findById(@Param("id1") Integer id1,@Param("id2") Integer id2,@Param("id3") Integer id3);
+    @Select("select * from t_comment where id=#{id}")
+    Comment selectComment(@Param("id") Integer id);
 
     @Insert("insert into springbootdata.t_comment(content, author, a_id) "+
     "values (#{content},#{author},#{aId})")
