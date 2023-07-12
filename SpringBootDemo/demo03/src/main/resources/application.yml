@@ -1,0 +1,8 @@
+server:
+  port: 1000
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/springbootdata?serverTimezone=UTC
+    username: myuser
+    password: fy46939.-
