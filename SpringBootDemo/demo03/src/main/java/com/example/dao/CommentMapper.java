@@ -22,6 +22,9 @@ public interface CommentMapper {
     @Update("update springbootdata.t_comment set content=#{c} where id=#{id}")
     int updateComment(@Param("c") String content,@Param("id") Integer id);
 
+    @Update("update t_comment set content=#{content} where id=#{id}")
+    int updateComment2(Comment comment);
+
     @Delete("delete from springbootdata.t_comment where id=#{id}")
     int deleteComment(@Param("id") Integer id);
 }

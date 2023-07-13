@@ -2,7 +2,14 @@ server:
   port: 1000
 spring:
   datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/springbootdata?serverTimezone=UTC
     username: myuser
     password: fy46939.-
+
+#mybatis:
+#  所在路径不同或命名不同:若不写，则xml文件应该在与dao同一路径下，即com.example.dao里放；若写则只需写mapper，会自动找到*Mapper文件
+#  mapper-locations: classpath:mapper/*Mapper.xml
+#  让resultMap中的返回类型pojo的全包名不用写
+#  type-aliases-package: com.example.pojo
