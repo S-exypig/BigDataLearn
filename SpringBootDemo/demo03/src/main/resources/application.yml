@@ -8,8 +8,11 @@ spring:
     username: myuser
     password: fy46939.-
 
-#mybatis:
+mybatis:
 #  所在路径不同或命名不同:若不写，则xml文件应该在与dao同一路径下，即com.example.dao里放；若写则只需写mapper，会自动找到*Mapper文件
 #  mapper-locations: classpath:mapper/*Mapper.xml
 #  让resultMap中的返回类型pojo的全包名不用写
 #  type-aliases-package: com.example.pojo
+  configuration:
+    #  日志配置，使sql在控制台展示
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

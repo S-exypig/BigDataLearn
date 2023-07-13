@@ -4,7 +4,29 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.example.dao.CommentMapper">
+
+    <update id="updateById" >
+        update t_comment
+        <set>
+            <if test="content!=null and content!=''">content=#{content},</if>
+            <if test="author!=null and author!=''">author=#{author}</if>
+        </set>
+        where id=#{id};
+    </update>
+
+    <update id="updateByIdOrAuthor">
+        update t_comment
+        <set>
+            <if test="content!=null and content!=''">content=#{content},</if>
+        </set>
+        <where>
+            <if test="id!=null">id=#{id}</if>
+            <if test="author!=null and author!=''">or author=#{author}</if>
+        </where>
+    </update>
+
     <select id="find" resultType="com.example.pojo.Comment" parameterType="int">
         select id,content,author,a_id aId from t_comment where a_id=#{id};
     </select>
+
 </mapper>

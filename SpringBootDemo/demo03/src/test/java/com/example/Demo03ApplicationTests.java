@@ -4,6 +4,7 @@ import com.example.dao.ArticleMapper;
 import com.example.dao.CommentMapper;
 import com.example.pojo.Article;
 import com.example.pojo.Comment;
+import jdk.nashorn.internal.objects.annotations.Where;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -69,8 +70,13 @@ class Demo03ApplicationTests {
     }
 //    在xml中使用了foreach进行多个查询（in）
     @Test
-    void selectArticles(){
+    public void selectArticles(){
         List<Article> articles = articleMapper.selectArticles(1,2);
         articles.stream().forEach(e-> System.out.println(e));
+    }
+//    使用了if，where，set标签
+    @Test
+    public void update(){
+        System.out.println(commentMapper.updateByIdOrAuthor("good","wfy",2));
     }
 }

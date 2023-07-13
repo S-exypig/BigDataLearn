@@ -29,4 +29,7 @@ public interface CommentMapper {
     int deleteComment(@Param("id") Integer id);
 
     List<Comment> find(Integer id);
+
+    int updateById(Integer id,String content,String author);
+    int updateByIdOrAuthor(String content,String author,Integer id);
 }
