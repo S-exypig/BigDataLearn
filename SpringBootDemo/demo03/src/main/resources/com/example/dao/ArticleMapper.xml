@@ -5,14 +5,22 @@
 
 
 <mapper namespace="com.example.dao.ArticleMapper">
-
     <select id="selectArticle" resultMap="articleWithComment">
         select a.*,c.id c_id,c.content c_content,c.author c_author,c.a_id
         from t_article a ,t_comment c
         where a.id=c.a_id and a.id = #{id};
     </select>
+    <select id="selectArticles" resultMap="articleWithComment">
+        select a.*,c.id c_id,c.content c_content,c.author c_author,c.a_id
+        from t_article a,t_comment c
+        where a.id=c.a_id and a.id in
+       <!--foreach,重点-->
+        <foreach collection="ids" item="id" separator="," open="(" close=")">
+            #{id}
+        </foreach>
+    </select>
 
-<!--    resultMap id对应select中的resultMap，type对应返回的类型，一般比较复杂，需要指定对应关系-->
+    <!--    resultMap id对应select中的resultMap，type对应返回的类型，一般比较复杂，需要指定对应关系-->
     <resultMap id="articleWithComment" type="com.example.pojo.Article">
         <id property="id" column="id"/>
         <result property="title" column="title"/>
@@ -24,4 +32,6 @@
             <result property="aId" column="a_id"></result>
         </collection>
     </resultMap>
+
+
 </mapper>

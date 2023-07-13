@@ -8,7 +8,7 @@ import java.util.List;
 @Mapper
 public interface CommentMapper {
 
-    @Select("select * from t_comment where id=#{id}")
+    @Select("select id, content, author, a_id aId from t_comment where id=#{id}")
     Comment selectComment(@Param("id") Integer id);
 
     @Insert("insert into springbootdata.t_comment(content, author, a_id) "+
@@ -27,4 +27,6 @@ public interface CommentMapper {
 
     @Delete("delete from springbootdata.t_comment where id=#{id}")
     int deleteComment(@Param("id") Integer id);
+
+    List<Comment> find(Integer id);
 }
