@@ -11,6 +11,8 @@ import java.util.Calendar;
 public class LoginController {
     @GetMapping("/login")
     public String toLoginPage(Model model){
+//        model的使用:halo相当于key,将key在templates中替换为value的值
+        model.addAttribute("halo","halo thymeleaf");
         model.addAttribute("currentYear",Calendar.getInstance().get(Calendar.YEAR));
 //        转发到templates页面:前缀+字符串+后缀(templates+login+.html),注意不能@RespondBody
         return "login";
