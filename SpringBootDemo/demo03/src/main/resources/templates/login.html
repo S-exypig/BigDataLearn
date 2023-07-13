@@ -9,11 +9,23 @@
 </head>
 <body>
     <p th:text="${halo}">halo world!</p>
+    <a th:href="@{${baidu}}">百度</a>
 <!--    此处th:text="${currentYear}"中cur...报错，但运行后无误，故修改了idea的设置-->
 <!--    “File”->“Settings”->“Editor”->“Inspection”(检查)->输入thy...->找到表达式变量中未解析的引用-->
     <button class="btn btn-lg btn-primary btn-block" type="submit">登录</button>
     <p class="mt-5 mb-3 text-muted">©<span th:text="${currentYear}">2018</span>
         -<span th:text="${currentYear}+1">2019</span></p>
-
+    <br><hr><br>
+    <table border="1">
+        <thead>
+        <tr><td>编号</td><td>标题</td><td>内容</td></tr>
+        </thead>
+<!--        循环th:each,将allArticle集合取出单个命名为a,类似foreach-->
+        <tr th:each="a:${allArticles}">
+            <td th:text="${a.id}"></td>
+            <td th:text="${a.title}"></td>
+            <td th:text="${a.content}"></td>
+        </tr>
+    </table>
 </body>
 </html>
