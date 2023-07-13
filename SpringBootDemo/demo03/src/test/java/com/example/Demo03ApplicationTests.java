@@ -68,7 +68,8 @@ class Demo03ApplicationTests {
         commentList.stream().forEach(e-> System.out.println(e));
     }
 //    在xml中使用了foreach进行多个查询（in）
-    @Test void selectArticles(){
+    @Test
+    void selectArticles(){
         List<Article> articles = articleMapper.selectArticles(1,2);
         articles.stream().forEach(e-> System.out.println(e));
     }
