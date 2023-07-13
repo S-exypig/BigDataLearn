@@ -14,6 +14,7 @@ spring:
     cache: false
     encoding: utf-8
     mode: HTML
+#    默认的classpath,可写可不写
     prefix: classpath:/templates/
     suffix: .html
 
